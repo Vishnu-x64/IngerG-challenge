@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_smorest import Api
 
@@ -22,9 +24,12 @@ def create_app():
 
     api = Api(app=app)
 
+    load_data = os.getenv("LOAD_DATA_FROM_FILE", 'False').lower() == 'true'
+    
     with app.app_context():
         db.create_all()
-        load_data_to_db('data/20210309_2020_1 - 4 (1) (1) (1).xls')
+        if load_data:
+            load_data_to_db('data/20210309_2020_1 - 4 (1) (1) (1).xls')
 
     api.register_blueprint(ProductionBlueprint)
 
