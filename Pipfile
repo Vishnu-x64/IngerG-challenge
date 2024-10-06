@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+pandas = "*"
+xlrd = "*"
+flask-sqlalchemy = "*"
+sqlalchemy = "*"
+python-dotenv = "*"
+flask-smorest = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
